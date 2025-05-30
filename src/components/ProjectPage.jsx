@@ -1,11 +1,14 @@
 import { ArrowBigRight, ArrowBigRightDash, ArrowBigRightDashIcon, ArrowBigRightIcon, ArrowRight, ExternalLinkIcon, GithubIcon } from "lucide-react"
+import project1 from '../assets/project-1.png';
+import project2 from '../assets/projec-2.png';
+import project3 from '../assets/project-3.png';
 
 const projects = [
     {
        id: 1,
        title: "Downloadable Wallpaper WebApp",
        description: "A web app that allows users to download wallpapers. using Html, Css and JavaScript",
-       image: "../Project/project-1.png",
+       image: project1,
        tags: ["Html", "Css", "JavaScript"],
        demoUrl: "https://ezugo23.github.io/wall/",
        githubUrl: "https://github.com/Ezugo23/wall",
@@ -14,7 +17,7 @@ const projects = [
        id: 2,
        title: "A Food Delivery Webapp for a company",
        description: "A web app that allows restaurant to accept food order from the users app. using react, tailwindcss, node.js, express.js, MongoDB",
-       image: "../Project/projec-2.png",
+       image: project2,
        tags: ["React", "TailwindCss", "Node.Js"],
        demoUrl: "https://www.swifdrop.ng/",
        githubUrl: "#",
@@ -23,7 +26,7 @@ const projects = [
        id: 3,
        title: "A Banking App",
        description: "A Fintech app used for money transfers loan requirement, redeeming of gift cards and other banking services. using react, tailwindcss, Php",
-       image: "../Project/project-3.png",
+       image: project3,
        tags: ["React", "TailwindCss", "PHP"],
        demoUrl: "https://getclear.ng/",
        githubUrl: "#",
