@@ -18,11 +18,9 @@ export const HeroSection = () => {
                         </span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Magni dignissimos molestias enim, harum necessitatibus 
-                    incidunt! Maiores sapiente accusantium animi amet harum 
-                    ipsam, aspernatur eveniet nesciunt, dolore dolor ea 
-                    minus consectetur!</p>
+                I am a full-stack developer with experience leading teams to design and build web and mobile applications. I focus on delivering user-friendly, secure,
+                 and efficient solutions while collaborating effectively to achieve project goals.
+                </p>
                     <div className="pt-4 opacity-0 animate-fade-in-delay-4">
                         <a href="#projects" className="cosmic-button">
                             View My Projects

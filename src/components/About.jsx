@@ -16,24 +16,21 @@ export const About = () => {
                         </h3>
 
                         <p className="text-muted-foreground">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing 
-                            elit. Sequi, asperiores harum nesciunt eos, 
-                            aperiam praesentium numquam atque nulla, sunt 
-                            distinctio aliquam dolorum hic quia. how long
+             With three years in tech, I have led development teams and built secure, 
+             user-friendly web and mobile applications, delivering scalable solutions while promoting 
+             teamwork and growth.
                         </p>
 
                         <p className="text-muted-foreground">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing 
-                            elit. Sequi, asperiores harum nesciunt eos, 
-                            aperiam praesentium numquam atque nulla, sunt 
-                            distinctio aliquam dolorum hic quia. how passionate am i
+                           As a full-stack developer, I’m passionate about technology and always open to new 
+                           ideas and experiences that help me grow and build better web applications.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                             <a href="#contact" className="cosmic-button">
                                 Get In Touch
                             </a>
-                            <a href="#contact" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300">
+                            <a href="/public/Iwu Paschal's CV.docx" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300">
                                 Download CV
                             </a>
                         </div>

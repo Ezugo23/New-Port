@@ -2,25 +2,41 @@ import { Instagram, LinkedinIcon, LocateIcon, MailQuestion, PhoneIncoming, SendI
 import { cn } from "../lib/utils"
 import { useToast } from "../hooks/use-toast"
 import { Description } from "@radix-ui/react-toast";
+import emailjs from "emailjs-com"
 import { useState } from "react";
 
 export const ContactSec = () => {
     const {toast} = useToast();
-    const {isSubmit, setIsSubmit} = useState(false)
+    const [isSubmit, setIsSubmit] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         setIsSubmit(true)
-        setTimeout(() => {
-                toast({
-                    title: "Message Sent",
-                    description: "Thank you for your message. will get back to you shortly"
-                })
-                setIsSubmit(false)
-        }, 1500)
-        
-    }
+         emailjs
+    .sendForm(
+      'service_znz33cq',  
+      'template_q5er8fd',  
+      e.target,
+      '0Wjhuu9FSDyO8bqLT'    
+    )
+    .then(
+      (result) => {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for your message. I’ll get back to you shortly.",
+        });
+        setIsSubmit(false);
+      },
+      (error) => {
+        toast({
+          title: "Error",
+          description: "There was a problem sending your message. Try again.",
+        });
+        setIsSubmit(false);
+      }
+    );
+};
     return(
         <>
             <section id="contact" className="py-24 px-4 relative bg-s">
@@ -78,7 +94,7 @@ export const ContactSec = () => {
                                     <div className="pt-8">
                                         <h4 className="font-medium mb-4">Connect With Me</h4>
                                         <div className="flex space-x-4 justify-center">
-                                            <a href="" target="_blank">
+                                            <a href="http://www.linkedin.com/in/paschal-c-iwu">
                                                 <LinkedinIcon/>
                                             </a>
                                             <a href="" target="_blank">
@@ -91,10 +107,10 @@ export const ContactSec = () => {
                                     </div>
                                 </div>
 
-                                <div className="bg-card p-8 rounded-lg shadow-x5" onSubmit={(handleSubmit)}>
+                                <div className="bg-card p-8 rounded-lg shadow-x5">
                                             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-                                            <form action="" className="space-y-6">
+                                            <form action="" className="space-y-6" onSubmit={(handleSubmit)}>
                                                 <div>
                                                     <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
                                                     <input
