@@ -17,21 +17,44 @@ import { useEffect, useRef, useState } from "react"
 export const Home = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isVoiceInput, setIsVoiceInput] = useState(false);
   const chatBodyRef = useRef();
 
-const generateResponse = async (userMessage) => {
+  const [userId, setUserId] = useState('');
+
+useEffect(() => {
+  const storedId = localStorage.getItem('chat_user_id');
+  if (storedId) {
+    setUserId(storedId);
+  } else {
+    const newId = crypto.randomUUID();
+    localStorage.setItem('chat_user_id', newId);
+    setUserId(newId);
+  }
+}, []);
+
+const generateResponse = async (userMessage, voiceInput = false) => {
   setChatHistory(prev => [...prev, { role: "model", text: "...Thinking" }]);
 
   try {
-    const response = await fetch(`https://ai-chatbot-10.onrender.com/Chatbot?message=${encodeURIComponent(userMessage)}`);
-
+    const response = await fetch(
+      `https://ai-chatbot-10.onrender.com/Chatbot?message=${encodeURIComponent(userMessage)}&userId=${userId}`
+    );
     const data = await response.json();
-    if (!response.ok) throw new Error(data.error?.message || "Something went wrong");
+
+    const finalResponse = data.message || "No reply received.";
 
     setChatHistory(prev => [
       ...prev.slice(0, -1),
-      { role: "model", text: data.message || "No reply received." }
+      { role: "model", text: finalResponse }
     ]);
+
+    // 🔊 Use SpeechSynthesis to read the bot's response aloud
+       if (voiceInput) {
+      const utterance = new SpeechSynthesisUtterance(finalResponse);
+      utterance.lang = "en-US";
+      window.speechSynthesis.speak(utterance);
+    }
   } catch (e) {
     console.error(e);
     setChatHistory(prev => [
@@ -80,7 +103,7 @@ const generateResponse = async (userMessage) => {
               <div className="chat-header bg-card">
                 <div className="header-info">
                   <ChatIcon />
-                  <p className="logo-text">PIC AI</p>
+                  <p className="logo-text">APPA</p>
                 </div>
                 <button onClick={() => setIsChatOpen(false)}>
                   <ChevronDown className="text-center" />
@@ -113,6 +136,7 @@ const generateResponse = async (userMessage) => {
                   chatHistory={chatHistory}
                   setChatHistory={setChatHistory}
                   generateResponse={generateResponse}
+                  setIsVoiceInput={setIsVoiceInput}
                 />
               </div>
             </div>
