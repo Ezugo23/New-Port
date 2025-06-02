@@ -61,8 +61,18 @@ export const ChatForm = ({ chatHistory, setChatHistory, generateResponse, setIsV
   };
 
   return (
-   <form className="chat-form flex items-center gap-2 p-2" onSubmit={handleFormSubmit}>
-  <button type="button" onClick={handleVoiceInput} aria-label="Speak" className="p-2">
+  <form
+  className="chat-form flex items-center gap-2 p-2"
+  onSubmit={handleFormSubmit}
+  style={{ maxWidth: "100%", width: "100%" }}
+>
+  <button
+    type="button"
+    onClick={handleVoiceInput}
+    aria-label="Speak"
+    className="p-2 flex-shrink-0"
+    style={{ minWidth: "40px", minHeight: "40px" }}
+  >
     {isListening ? (
       <MicOff className="w-8 h-8 text-white bg-red-500 rounded-full animate-pulse" />
     ) : (
@@ -74,11 +84,16 @@ export const ChatForm = ({ chatHistory, setChatHistory, generateResponse, setIsV
     ref={inputRef}
     type="text"
     placeholder="Message..."
-    className="flex-1 rounded-md text-black px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
+    className="flex-grow rounded-md text-black px-3 py-2 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
     required
+    style={{ minWidth: 0 }}
   />
 
-  <button type="submit" className="p-2">
+  <button
+    type="submit"
+    className="p-2 flex-shrink-0"
+    style={{ minWidth: "40px", minHeight: "40px" }}
+  >
     <ChevronUp className="w-8 h-8 text-white bg-card rounded-full" />
   </button>
 </form>
