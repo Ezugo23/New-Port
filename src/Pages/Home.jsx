@@ -90,7 +90,7 @@ const generateResponse = async (userMessage) => {
               <div ref={chatBodyRef} className="chat-body">
                 <div className="message bot-message flex">
                   <ChatIcon />
-                  <p className="message-text text-black">HI I'm PIC👋</p>
+                  <p className="message-text text-black">HI I'M APPA👋</p>
                 </div>
                 <div className="message bot-message flex">
                   <ChatIcon />
